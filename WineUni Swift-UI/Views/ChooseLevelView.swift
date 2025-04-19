@@ -11,16 +11,7 @@ struct ChooseLevel: View {
     var body: some View {
         NavigationStack{
             VStack{
-                HStack(){
-                    VStack(alignment: .leading){
-                        Text("What do you want")
-                        HStack( spacing: 1){
-                            Text("to do ")
-                            Text("today?").foregroundStyle(.blue)
-                        }
-                    }.font(.system(.title, design: .default, weight: .bold))
-                    Spacer()
-                }.padding()
+                ChooseLevelText()
                 Spacer()
                 VStack(spacing: 20){
                 NavigationLink(destination: Text("")){
