@@ -13,6 +13,10 @@ struct NavLink<Destination: View>: View {
     let title: String
     let textColor: Color
     let bgColor: Color
+    let difficulty: Difficulty
+    
+    @EnvironmentObject var quizSettings : QuizSettings
+    
     var body: some View {
         NavigationLink(destination: destination) {
                     Text(title)
@@ -23,9 +27,12 @@ struct NavLink<Destination: View>: View {
                         
                         
                 }
+        .simultaneousGesture(TapGesture().onEnded{
+            quizSettings.difficulty = difficulty
+        })
     }
 }
 
 #Preview {
-    NavLink(destination: Text("My Text"), title: "Novice", textColor: .white, bgColor: .green)
+    NavLink(destination: Text("My Text"), title: "Novice", textColor: .white, bgColor: .green, difficulty: .novice)
 }
