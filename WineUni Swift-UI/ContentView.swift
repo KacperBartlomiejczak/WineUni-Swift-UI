@@ -8,17 +8,26 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var settings: QuizSettings
     
-
     var body: some View {
-        NavigationView {
-           WelcomeView()
+        ZStack{
+            switch settings.currentScreen{
+            case .welcome:
+                WelcomeView()
+                    
+            case .chooseLevel:
+                ChooseLevelView()
+                    
+            case .question:
+                QuestionView()
+                    
                 
-            }.padding()
+            }
         }
     }
-
+}
 
 #Preview {
-    ContentView()
+    ContentView().environmentObject(QuizSettings())
 }

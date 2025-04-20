@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct WineUni_Swift_UIApp: App {
+    @StateObject var settings = QuizSettings()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().environmentObject(settings)
         }
     }
 }

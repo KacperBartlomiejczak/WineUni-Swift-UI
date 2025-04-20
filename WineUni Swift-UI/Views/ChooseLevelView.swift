@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-struct ChooseLevel: View {
+struct ChooseLevelView: View {
+    @EnvironmentObject var settings: QuizSettings
+    
     var body: some View {
         NavigationStack{
             VStack{
@@ -17,9 +19,12 @@ struct ChooseLevel: View {
                 NavigationLink(destination: Text("")){
                     Image("Test by Category")
                 }
-                NavigationLink(destination: Text("")){
-                    Image("Test All")
-                }
+                    Button(action: {
+                        settings.currentScreen = .question
+                        print(settings.currentScreen)
+                    }){
+                        Image("Test All")
+                    }
                 }.padding(.horizontal, 20)
             }
                 
@@ -29,5 +34,5 @@ struct ChooseLevel: View {
 }
 
 #Preview {
-    ChooseLevel()
+    ChooseLevelView().environmentObject(QuizSettings())
 }

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct WelcomeView: View {
+    
+
     var body: some View {
         NavigationStack{
             
@@ -21,9 +23,9 @@ struct WelcomeView: View {
                     .font(.title)
                     .padding()
                 VStack(spacing: 25){
-                    NavLink(destination: ChooseLevel(), title: "Novice", textColor: .white, bgColor: .blue, difficulty: .novice)
-                    NavLink(destination: ChooseLevel(), title: "Intermediate ", textColor: .white, bgColor: .green, difficulty: .intermediate)
-                    NavLink(destination: ChooseLevel(), title: "Expert", textColor: .white, bgColor: .red, difficulty: .expert)
+                    NavLink(destination: ChooseLevelView(), title: "Novice", textColor: .white, bgColor: .blue, difficulty: .novice)
+                    NavLink(destination: ChooseLevelView(), title: "Intermediate ", textColor: .white, bgColor: .green, difficulty: .intermediate)
+                    NavLink(destination: ChooseLevelView(), title: "Expert", textColor: .white, bgColor: .red, difficulty: .expert)
                 }
                 
             }.padding()

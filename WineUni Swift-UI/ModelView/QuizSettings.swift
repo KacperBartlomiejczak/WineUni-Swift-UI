@@ -14,9 +14,14 @@ class QuizSettings: ObservableObject {
     @Published var userScore: Int = 0
     @Published var answeredQuestions: Int = 0
     
+    @Published var currentScreen: Screen = .welcome
+    
+    
+    
     func nextQuestion(){
         answeredQuestions += 1
         
     }
+    
     
 }

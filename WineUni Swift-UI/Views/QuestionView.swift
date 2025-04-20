@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct QuestionView: View {
-    @ObservedObject var quizSettings: QuizSettings
+    @EnvironmentObject var quizSettings: QuizSettings
     
     var body: some View {
         NavigationStack(){
@@ -18,7 +18,7 @@ struct QuestionView: View {
                     Text("Question \(quizSettings.answeredQuestions)/10").foregroundStyle(.blue)
                         .font(.system(.title2, design: .default, weight: .bold))
                     Spacer()
-                    NavigationLink(destination: ContentView()){
+                    Button(action: {quizSettings.currentScreen = .welcome}){
                         Text("Quit test").foregroundStyle(.black)
                     }.font(.system(.title2, design: .default, weight: .light))
                     
@@ -28,10 +28,10 @@ struct QuestionView: View {
                 Spacer()
               
                 VStack(spacing: 20){
-                    QuestionText(AnswerTag: "A", AnswerText: "To jest wymiar na iphone5. Tu mozesz wpisac odpowiedí, która nie bedzie przekracza 276pt width")
-                    QuestionText(AnswerTag: "B", AnswerText: "To jest wymiar na iphone5. Tu mozesz wpisac odpowiedí, która nie bedzie przekracza 276pt width")
-                    QuestionText(AnswerTag: "C", AnswerText: "To jest wymiar na iphone5. Tu mozesz wpisac odpowiedí, która nie bedzie przekracza 276pt width")
-                    QuestionText(AnswerTag: "D", AnswerText: "To jest wymiar na iphone5. Tu mozesz wpisac odpowiedí, która nie bedzie przekracza 276pt width")
+                    QuestionButton(AnswerTag: "A", AnswerText: "To jest wymiar na iphone5. Tu mozesz wpisac odpowiedí, która nie bedzie przekracza 276pt width")
+                    QuestionButton(AnswerTag: "B", AnswerText: "To jest wymiar na iphone5. Tu mozesz wpisac odpowiedí, która nie bedzie przekracza 276pt width")
+                    QuestionButton(AnswerTag: "C", AnswerText: "To jest wymiar na iphone5. Tu mozesz wpisac odpowiedí, która nie bedzie przekracza 276pt width")
+                    QuestionButton(AnswerTag: "D", AnswerText: "To jest wymiar na iphone5. Tu mozesz wpisac odpowiedí, która nie bedzie przekracza 276pt width")
                         
                     
                 }
@@ -41,5 +41,5 @@ struct QuestionView: View {
 }
 
 #Preview {
-    QuestionView(quizSettings: QuizSettings())
+    QuestionView().environmentObject(QuizSettings())
 }
