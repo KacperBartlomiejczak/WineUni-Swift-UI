@@ -16,21 +16,18 @@ struct ChooseLevelView: View {
                 ChooseLevelText()
                 Spacer()
                 VStack(spacing: 20){
-                NavigationLink(destination: Text("")){
-                    Image("Test by Category")
-                }
-                    Button(action: {
-                        settings.currentScreen = .question
-                        print(settings.currentScreen)
-                    }){
+                    NavigationLink(destination: Text("")){
+                        Image("Test by Category")
+                    }
+                    NavigationLink(destination: QuestionView().environmentObject(settings))
+                    {
                         Image("Test All")
                     }
-                }.padding(.horizontal, 20)
-            }
+                }
                 
-        }
-        
-    }
+            }
+            
+        }}
 }
 
 #Preview {

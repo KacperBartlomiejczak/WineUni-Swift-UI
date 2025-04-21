@@ -18,9 +18,10 @@ struct QuestionView: View {
                     Text("Question \(quizSettings.answeredQuestions)/10").foregroundStyle(.blue)
                         .font(.system(.title2, design: .default, weight: .bold))
                     Spacer()
-                    Button(action: {quizSettings.currentScreen = .welcome}){
-                        Text("Quit test").foregroundStyle(.black)
-                    }.font(.system(.title2, design: .default, weight: .light))
+                    NavigationLink(destination: ContentView()){
+                        Text("Quit Test").foregroundStyle(.black).font(.headline)
+                    }
+                    
                     
                 }
                 
@@ -35,8 +36,10 @@ struct QuestionView: View {
                         
                     
                 }
-            }.padding()
-        }
+            }
+            .padding()
+            
+        }.navigationBarBackButtonHidden(true)
     }
 }
 

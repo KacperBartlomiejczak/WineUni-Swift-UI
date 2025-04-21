@@ -11,21 +11,13 @@ struct ContentView: View {
     @EnvironmentObject var settings: QuizSettings
     
     var body: some View {
-        ZStack{
-            switch settings.currentScreen{
-            case .welcome:
-                WelcomeView()
-                    
-            case .chooseLevel:
-                ChooseLevelView()
-                    
-            case .question:
-                QuestionView()
-                    
-                
+        NavigationStack{
+            ZStack{
+                WelcomeView().environmentObject(settings)
             }
-        }
+        }.navigationBarBackButtonHidden(true)
     }
+        
 }
 
 #Preview {
