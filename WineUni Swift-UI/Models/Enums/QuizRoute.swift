@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+enum QuizRoute: Hashable{
+    case chooseLevel
+    case question
+    case summary
+    
+    var id: Self {self}
+}
